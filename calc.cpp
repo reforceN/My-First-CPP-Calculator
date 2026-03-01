@@ -1,10 +1,6 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
-// ceil = higer, floor = lower (round)
-//using namespace std for cout
-//1-something interesting is that you could point the void above everything w/o any code and place the code under everything
-//2-so it wont show a error because it already pointed on the code before
 //calc list: (+ - * /) (factorial, power, square root) (temperature converter,distance converter, rng, even or odd)
 void calc();
 void display();
@@ -256,4 +252,5 @@ void miles(){
   if(result <1){
     std::cout<<"\nresult is "<<std::fixed<<std::setprecision(7)<<result<<" "<<defmea2<<'\n';}
   else{std::cout<<"\nresult is "<<std::fixed<<std::setprecision(0)<<result<<" "<<defmea2<<'\n';}
+
  }
