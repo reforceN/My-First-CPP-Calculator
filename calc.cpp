@@ -226,11 +226,11 @@ void miles(){
   else if(measure1 == 'K' && measure2 == 'm'){result = distance*1000000;}
   else if(measure1 == 'M' && measure2 == 'K'){result = distance/1000;}
   else if(measure1 == 'M' && measure2 == 'C'){result = distance*100;}
-  else if(measure1 == 'M' && measure2 == 'm'){result = distance/1000;}
+  else if(measure1 == 'M' && measure2 == 'm'){result = distance*1000;}
   else if(measure1 == 'C' && measure2 == 'm'){result = distance*10;}
   else if(measure1 == 'C' && measure2 == 'K'){result = distance/100000;}
   else if(measure1 == 'C' && measure2 == 'M'){result = distance/100;}
-  else if(measure1 == 'm' && measure2 == 'K'){result = distance*1000000;}
+  else if(measure1 == 'm' && measure2 == 'K'){result = distance/1000000;}
   else if(measure1 == 'm' && measure2 == 'C'){result = distance/10;}
   else if(measure1 == 'm' && measure2 == 'M'){result = distance/1000;}
   switch(measure2){
@@ -255,4 +255,5 @@ void miles(){
   else{std::cout<<"\nresult is "<<std::fixed<<std::setprecision(0)<<result<<" "<<defmea2<<'\n';}
 
  }
+
 
