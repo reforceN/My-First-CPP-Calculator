@@ -1,3 +1,5 @@
+Terminal Calculator
+
 Features:
 - Addition
 - Subtraction
