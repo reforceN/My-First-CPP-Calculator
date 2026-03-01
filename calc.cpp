@@ -106,14 +106,15 @@ void calc(){
 }
 void display(){
   using namespace std;
-   cout<<"----------------------------"<<'\n';//1
-   cout<<"|       Calculator         |"<<'\n';//2
-   cout<<"|(+ - / *)                 |"<<'\n';//3
-   cout<<"|(f for !)                 |"<<'\n';//4
-   cout<<"|(p for power)             |"<<'\n';//5
-   cout<<"|(q for program list)      |"<<'\n';//6
-   cout<<"|                          |"<<'\n';//7
-   cout<<"|--------------------------|"<<'\n';//8
+   cout<<"----------------------------"<<'\n';
+   cout<<"|       Calculator         |"<<'\n';
+   cout<<"|(+ - / *)                 |"<<'\n';
+   cout<<"|(f for !)                 |"<<'\n';
+   cout<<"|(p for power)             |"<<'\n';
+   cout<<"|(s for square root)       |"<<'\n';
+   cout<<"|(q for program list)      |"<<'\n';
+   cout<<"|                          |"<<'\n';
+   cout<<"|--------------------------|"<<'\n';
 }
 void listfunc(){
   int input;
@@ -254,3 +255,4 @@ void miles(){
   else{std::cout<<"\nresult is "<<std::fixed<<std::setprecision(0)<<result<<" "<<defmea2<<'\n';}
 
  }
+
