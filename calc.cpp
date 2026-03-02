@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
-//calc list: (+ - * /) (factorial, power, square root) (temperature converter,distance converter, rng, even or odd)
+#include <sstream>
+
 void calc();
 void display();
 void listfunc();
@@ -10,6 +11,7 @@ void even();
 void rng();
 void miles();
 int factorial(int firstn);
+std::string formatResult(double value);
 
 int main(){
     calc();
@@ -93,14 +95,11 @@ void calc(){
         default:
         std::cout << "Invalid operator or value, op: "<<op<<", and first and second value = "<<firstn<<", "<<secondn<<' '<<'\n';
     }
-     if(op=='/'){
-        std::cout << "{The result is " << std::fixed<<result <<"}"<< '\n'; 
-    }
-     else if(op == 'f' || op == 'q'){
+     if(op == 'f' || op == 'q'){
       std::cout<<'\n';
      }
       else{
-        std::cout << "{The result is " <<std::fixed<<std::setprecision(0)<< result <<"}"<< '\n'; 
+        std::cout << "{The result is " <<formatResult(result)<<"}"<< '\n'; 
     }}
 
 }
@@ -149,6 +148,17 @@ void listfunc(){
     break;
   }
 }
+
+std::string formatResult(double value){
+    std::stringstream ss;
+    ss << std::fixed << std::setprecision(10) << value;
+    std::string str = ss.str();
+
+    str.erase(str.find_last_not_of('0') + 1, std::string::npos);
+    if (str.back() == '.') {
+        str.pop_back();
+    }
+    return str;}
 
 void celsiusF(){
    char unit;
@@ -250,10 +260,4 @@ void miles(){
      std::cout<<"idk bro";
      break;
   }
-  if(result <1){
-    std::cout<<"\nresult is "<<std::fixed<<std::setprecision(7)<<result<<" "<<defmea2<<'\n';}
-  else{std::cout<<"\nresult is "<<std::fixed<<std::setprecision(0)<<result<<" "<<defmea2<<'\n';}
-
- }
-
-
+    std::cout<<"\nresult is "<<formatResult(result)<<" "<<defmea2<<'\n';}
