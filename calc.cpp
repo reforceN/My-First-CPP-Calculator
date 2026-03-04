@@ -12,6 +12,7 @@ void rng();
 void miles();
 int factorial(int firstn);
 std::string formatResult(double value);
+void fibonacci();
 
 int main(){
     calc();
@@ -122,7 +123,8 @@ void listfunc(){
   std::cout<<"|2 - Distance Converter              | "<<'\n';
   std::cout<<"|3 - RNG                             |"<<'\n';
   std::cout<<"|4 - Even or Odd                     |"<<'\n';
-  std::cout<<"|5 - Leave                           |"<<'\n';
+  std::cout<<"|5 - Fibonacci                       |"<<'\n';
+  std::cout<<"|6 - Leave                           |"<<'\n';
   std::cout<<"| Enter: ";
 
   std::cin>>input;
@@ -142,7 +144,11 @@ void listfunc(){
   case 4:
    even();
    break;
-  case 5:break;
+  case 5:
+   fibonacci();
+   break;
+  case 6:
+   break;
   default:
     std::cout<<"Did not select a proper program, returning to calculator..\n";
     break;
@@ -261,3 +267,33 @@ void miles(){
      break;
   }
     std::cout<<"\nresult is "<<formatResult(result)<<" "<<defmea2<<'\n';}
+
+void fibonacci(){
+  int size;
+  int curr;
+  int prev;
+  int next;
+
+  do{
+    std::cout<<"Enter a fibonacci size: ";
+    std::cin>>size;
+     std::cin.clear();
+     fflush(stdin);
+    if(size<0){
+      std::cout<<"Has to be a positive value\n";}
+  }while(size < 0);
+
+  int array[size]={};
+
+  array[0] = 1; array[1] = 1; size -2;
+
+  for(int i=1; i<=size ;i++){
+    prev = array[i-1];
+    curr = array[i];
+    next = curr + prev;
+    array[i+1] = next;
+  }
+  for(int number:array){
+    std::cout<<number<<" ";
+  }
+}
