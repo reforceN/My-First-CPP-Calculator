@@ -12,3 +12,4 @@ Features:
 - Length Converter
 - RNG
 - Even or Odd
+- Fibonacci
