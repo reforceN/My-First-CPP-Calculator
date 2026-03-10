@@ -2,6 +2,7 @@
 #include <cmath>
 #include <iomanip>
 #include <sstream>
+#include <windows.h>
 
 void calc();
 void display();
@@ -30,6 +31,7 @@ int factorial(int firstn){
 }
 
 void calc(){
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     while(true){
      char op;
      double firstn;
@@ -100,7 +102,9 @@ void calc(){
       std::cout<<'\n';
      }
       else{
-        std::cout << "{The result is " <<formatResult(result)<<"}"<< '\n'; 
+        SetConsoleTextAttribute(hConsole, 14);
+        std::cout << "{The result is " <<formatResult(result)<<"}"<< '\n';
+        SetConsoleTextAttribute(hConsole, 7);
     }}
 
 }
@@ -297,3 +301,4 @@ void fibonacci(){
     std::cout<<number<<" ";
   }
 }
+
