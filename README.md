@@ -1,4 +1,6 @@
-Terminal Calculator
+# Terminal Calculator 
+Last update: (March 10 2026)
+Made on Windows
 
 Features:
 - Addition
