@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <sstream>
 #include <windows.h>
+#include "handle.h"
 
 void calc();
 void display();
@@ -31,7 +32,6 @@ int factorial(int firstn){
 }
 
 void calc(){
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     while(true){
      char op;
      double firstn;
@@ -42,6 +42,7 @@ void calc(){
      std::cout << "| Enter:  ";
      std::cin >> op;
      std::cout << "|--------------------------|" <<'\n';
+     SetConsoleTextAttribute(hConsole, 7);
       std::cin.clear();
       fflush(stdin);
       
@@ -60,7 +61,9 @@ void calc(){
         std::cin.clear();
         fflush(stdin);
         firstn = factorial(firstn);
+         SetConsoleTextAttribute(hConsole, 14);
         std::cout<<"result: "<<std::fixed<<std::setprecision(0)<<firstn;
+         SetConsoleTextAttribute(hConsole, 7);
         break;
        case 'q':
          listfunc();
@@ -68,12 +71,12 @@ void calc(){
        default:
          std::cout << "-Enter first value: ";
          std::cin >> firstn;
-         std::cin.clear();
-         fflush(stdin);
+          std::cin.clear();
+          fflush(stdin);
          std::cout << "-Enter second value: ";
          std::cin >> secondn;
-         std::cin.clear();
-         fflush(stdin);
+          std::cin.clear();
+          fflush(stdin);
          break;
       }
      switch(op){
@@ -102,14 +105,15 @@ void calc(){
       std::cout<<'\n';
      }
       else{
-        SetConsoleTextAttribute(hConsole, 14);
+         SetConsoleTextAttribute(hConsole, 14);
         std::cout << "{The result is " <<formatResult(result)<<"}"<< '\n';
-        SetConsoleTextAttribute(hConsole, 7);
+         SetConsoleTextAttribute(hConsole, 7);
     }}
 
 }
 void display(){
   using namespace std;
+    SetConsoleTextAttribute(hConsole, 8);
    cout<<"----------------------------"<<'\n';
    cout<<"|       Calculator         |"<<'\n';
    cout<<"|(+ - / *)                 |"<<'\n';
@@ -122,6 +126,7 @@ void display(){
 }
 void listfunc(){
   int input;
+  SetConsoleTextAttribute(hConsole, 8);
   std::cout<<"------------Programs list-------------\n";
   std::cout<<"|1 - Temperature Converter           |"<<'\n';
   std::cout<<"|2 - Distance Converter              | "<<'\n';
@@ -130,21 +135,22 @@ void listfunc(){
   std::cout<<"|5 - Fibonacci                       |"<<'\n';
   std::cout<<"|6 - Leave                           |"<<'\n';
   std::cout<<"| Enter: ";
+  SetConsoleTextAttribute(hConsole, 7);
 
   std::cin>>input;
-  std::cin.clear();
-      fflush(stdin);
+    std::cin.clear();
+    fflush(stdin);
 
   switch(input){
   case 1:
     celsiusF();
     break;
   case 2:
-     miles();
-     break;
+   miles();
+   break;
   case 3:
-     rng();
-     break;
+   rng();
+   break;
   case 4:
    even();
    break;
@@ -160,23 +166,23 @@ void listfunc(){
 }
 
 std::string formatResult(double value){
-    std::stringstream ss;
-    ss << std::fixed << std::setprecision(10) << value;
-    std::string str = ss.str();
+    std::stringstream first;
+    first << std::fixed << std::setprecision(10) << value;
+    std::string second = first.str();
 
-    str.erase(str.find_last_not_of('0') + 1, std::string::npos);
-    if (str.back() == '.') {
-        str.pop_back();
+    second.erase(second.find_last_not_of('0') + 1, std::string::npos);
+    if (second.back() == '.') {
+        second.pop_back();
     }
-    return str;}
+    return second;}
 
 void celsiusF(){
-   char unit;
+    char unit;
     double temp;
 
     std::cout<<"\n---------------------------\nTemprature conversion program\n"<<"-C for celsius, and F for fahrenheit, K for kelvin: ";
     std::cin>>unit;
-
+    // i gotta rework that on the future
     if(unit == 'C' || unit == 'c'){
          std::cout<<"Enter the temperature in celsius: ";
          std::cin>>temp;
@@ -216,7 +222,9 @@ void rng(){
   std::cout<<"RNG from 1 to ";
   std::cin>>input_number;
   int number = (rand() % input_number) + 1;
+   SetConsoleTextAttribute(hConsole, 14);
   std::cout<<"Number from 1 to "<<input_number<<" is: "<<number;
+   SetConsoleTextAttribute(hConsole, 7);
 
 }
 
@@ -267,10 +275,12 @@ void miles(){
      defmea2 = "Milimeters";
      break;
     default: 
-     std::cout<<"idk bro";
+     std::cout<<"Invalid input";
      break;
   }
-    std::cout<<"\nresult is "<<formatResult(result)<<" "<<defmea2<<'\n';}
+   SetConsoleTextAttribute(hConsole, 14);
+    std::cout<<"\nresult is "<<formatResult(result)<<" "<<defmea2<<'\n';
+   SetConsoleTextAttribute(hConsole, 7);}
 
 void fibonacci(){
   int size;
@@ -297,8 +307,9 @@ void fibonacci(){
     next = curr + prev;
     array[i+1] = next;
   }
+  SetConsoleTextAttribute(hConsole, 14);
   for(int number:array){
     std::cout<<number<<" ";
   }
+  SetConsoleTextAttribute(hConsole, 7);
 }
-
