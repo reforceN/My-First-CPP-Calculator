@@ -2,7 +2,6 @@
 #include <cmath>
 #include <iomanip>
 #include <sstream>
-#include <windows.h>
 #include "handle.h"
 
 void calc();
