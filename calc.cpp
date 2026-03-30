@@ -14,6 +14,7 @@ void miles();
 int factorial(int firstn);
 std::string formatResult(double value);
 void fibonacci();
+void bhaskara();
 
 int main(){
     calc();
@@ -132,7 +133,8 @@ void listfunc(){
   std::cout<<"|3 - RNG                             |"<<'\n';
   std::cout<<"|4 - Even or Odd                     |"<<'\n';
   std::cout<<"|5 - Fibonacci                       |"<<'\n';
-  std::cout<<"|6 - Leave                           |"<<'\n';
+  std::cout<<"|6 - Bhaskara                        |"<<'\n';
+  std::cout<<"|7 - Leave                           |"<<'\n';
   std::cout<<"| Enter: ";
   SetConsoleTextAttribute(hConsole, 7);
 
@@ -141,26 +143,29 @@ void listfunc(){
     fflush(stdin);
 
   switch(input){
-  case 1:
-    celsiusF();
-    break;
-  case 2:
-   miles();
-   break;
-  case 3:
-   rng();
-   break;
-  case 4:
-   even();
-   break;
-  case 5:
-   fibonacci();
-   break;
-  case 6:
-   break;
-  default:
-    std::cout<<"Did not select a proper program, returning to calculator..\n";
-    break;
+      case 1:
+       celsiusF();
+       break;
+      case 2:
+       miles();
+       break;
+      case 3:
+       rng();
+       break;
+      case 4:
+       even();
+       break;
+      case 5:
+       fibonacci();
+       break;
+      case 6:
+       bhaskara();
+       break;
+      case 7:
+       break;
+      default:
+        std::cout<<"Did not select a proper program, returning to calculator..\n";
+        break;
   }
 }
 
@@ -311,4 +316,20 @@ void fibonacci(){
     std::cout<<number<<" ";
   }
   SetConsoleTextAttribute(hConsole, 7);
+}
+
+void bhaskara(){
+  int a, b, c;
+  std::cout<<"\n------Bhaskara-----\n";
+  std::cout<<"  Enter the a b and c value: \n";
+  std::cout<<"A: "; std::cin>>a;
+  std::cout<<"B: "; std::cin>>b;
+  std::cout<<"C: "; std::cin>>c;
+  
+  int delta = (pow(b, 2)) - 4 * a * c;
+  double temp1 = (- b) + (sqrt(delta));
+  double temp2 = (- b) - (sqrt(delta));
+  double resultOne = temp1 / 2 * a;
+  double resultTwo = temp2 / 2 * a;
+  std::cout<<"\n x1: "; stc(14); std::cout<<resultOne; stc(7); std::cout<<"\n x2: "; stc(14); std::cout<<resultTwo; stc(7);
 }
