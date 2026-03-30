@@ -327,9 +327,7 @@ void bhaskara(){
   std::cout<<"C: "; std::cin>>c;
   
   int delta = (pow(b, 2)) - 4 * a * c;
-  double temp1 = (- b) + (sqrt(delta));
-  double temp2 = (- b) - (sqrt(delta));
-  double resultOne = temp1 / 2 * a;
-  double resultTwo = temp2 / 2 * a;
+  double resultOne = ((- b) + (sqrt(delta))) / 2 * a;
+  double resultTwo = ((-b) - (sqrt(delta))) / 2 * a;
   std::cout<<"\n x1: "; stc(14); std::cout<<resultOne; stc(7); std::cout<<"\n x2: "; stc(14); std::cout<<resultTwo; stc(7);
 }
