@@ -327,7 +327,10 @@ void bhaskara(){
   std::cout<<"C: "; std::cin>>c;
   
   int delta = (pow(b, 2)) - 4 * a * c;
-  double resultOne = ((- b) + (sqrt(delta))) / 2 * a;
-  double resultTwo = ((-b) - (sqrt(delta))) / 2 * a;
-  std::cout<<"\n x1: "; stc(14); std::cout<<resultOne; stc(7); std::cout<<"\n x2: "; stc(14); std::cout<<resultTwo; stc(7);
+  if (delta < 0) std::cout<<"Does not exist, delta is lower than 0.";
+  else{
+    double resultOne = ((-b) + (sqrt(delta))) / 2 * a;
+    double resultTwo = ((-b) - (sqrt(delta))) / 2 * a;
+    std::cout<<"\n x1: "; stc(14); std::cout<<resultOne; stc(7); std::cout<<"\n x2: "; stc(14); std::cout<<resultTwo; stc(7);
+  }
 }
