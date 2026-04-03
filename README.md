@@ -1,5 +1,5 @@
 # Terminal Calculator 
-Last update: (March 11 2026)
+Last update: (April 3 2026)
 Made on Windows
 
 Features:
