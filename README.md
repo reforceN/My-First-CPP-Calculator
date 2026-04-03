@@ -15,3 +15,4 @@ Features:
 - RNG
 - Even or Odd
 - Fibonacci
+- Bhaskara
